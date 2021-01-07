@@ -2,7 +2,7 @@
     "name": "remember-restore-cursor",
     "displayName": "Remember or Restore Cursor",
     "description": "remember & restore cursor/s position with ease",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "ctf0",
     "repository": "https://github.com/ctf0/vscode-remember-restore-cursor",
     "engines": {

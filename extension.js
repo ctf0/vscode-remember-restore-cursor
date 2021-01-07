@@ -25,7 +25,11 @@ async function activate(context) {
         }),
         vscode.commands.registerCommand('src.restore', () => {
             let editor = getEditor()
-            editor.selections = positions
+
+            if (editor) {
+                editor.selections = positions
+            }
+
             positions = []
         })
     )
