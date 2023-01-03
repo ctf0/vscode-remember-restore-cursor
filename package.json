@@ -2,46 +2,47 @@
     "name": "remember-restore-cursor",
     "displayName": "Remember or Restore Cursor",
     "description": "remember & restore cursor/s position with ease",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "ctf0",
     "repository": "https://github.com/ctf0/vscode-remember-restore-cursor",
     "engines": {
-        "vscode": "^1.52.0"
+        "vscode": "^1.68.0"
     },
     "categories": [
         "Other"
     ],
     "activationEvents": [
-        "onCommand:src.remember",
-        "onCommand:src.restore"
+        "onStartupFinished"
     ],
     "main": "./extension.js",
     "contributes": {
         "commands": [
             {
                 "command": "src.remember",
-                "title": "Remember or Restore Cursor: Remember"
+                "title": "Remember",
+                "category": "Remember or Restore Cursor"
             },
             {
                 "command": "src.restore",
-                "title": "Remember or Restore Cursor: Restore"
+                "title": "Restore",
+                "category": "Remember or Restore Cursor"
             }
-        ]
-    },
-    "scripts": {
-        "lint": "eslint .",
-        "pretest": "yarn run lint",
-        "test": "node ./test/runTest.js"
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "src.remember",
+                    "when": "editorIsOpen && !editorReadonly"
+                },
+                {
+                    "command": "src.restore",
+                    "when": "srcEnabled"
+                }
+            ]
+        }
     },
     "devDependencies": {
-        "@types/glob": "^7.1.3",
-        "@types/mocha": "^8.2.0",
-        "@types/node": "^14.14.19",
-        "@types/vscode": "^1.52.0",
-        "eslint": "^7.17.0",
-        "glob": "^7.1.6",
-        "mocha": "^8.2.1",
-        "typescript": "^4.1.3",
-        "vscode-test": "^1.4.1"
+        "@types/vscode": "^1.68.0",
+        "typescript": "^5.0.2"
     }
 }
